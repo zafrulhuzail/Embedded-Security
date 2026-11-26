@@ -35,8 +35,8 @@ ca_cert = 'ca.crt'
 
 context = ssl.create_default_context(ssl.Purpose.CLIENT_AUTH)
 context.verify_mode = ssl.CERT_REQUIRED
-context.options ^= ssl.OP_NO_TLSv1_2
-context.options ^= ssl.OP_NO_TLSv1_3
+context.options = ssl.OP_NO_TLSv1_3
+context.options = ssl.OP_NO_TLSv1_3
 context.load_cert_chain(certfile=server_cert, keyfile=server_key)
 context.load_verify_locations(cafile=ca_cert)
 
